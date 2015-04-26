@@ -26,6 +26,9 @@ app.get('/about', function(req, res, next) {
     res.render('about', { site_name: 'TrivNode' });
 });
 
+var api = require('./routes/api');
+app.use('/api', api);
+
 
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'));
