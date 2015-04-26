@@ -1,0 +1,14 @@
+#!/bin/bash
+# This hook is run after this virtualenv is activated.
+cd ~/dev/trivnode
+
+export PYTHONPATH=~/dev/trivnode
+
+#export POSTMARK_API_TOKEN=
+#export POSTMARK_API_KEY=
+#export POSTMARK_INBOUND_ADDRESS=
+#export POSTMARK_SMTP_SERVER=smtp.postmarkapp.com
+#export STORMPATH_API_KEY_ID=
+#export STORMPATH_API_KEY_SECRET=
+#export STORMPATH_URL=
+
