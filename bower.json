@@ -1,0 +1,20 @@
+{
+  "name": "trivnode",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hillscottc/trivnode",
+  "authors": [
+    "Scott Hill <scott289@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
