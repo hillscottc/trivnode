@@ -12,18 +12,18 @@ Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https
 $ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
 $ cd node-js-getting-started
 $ npm install
+$ npm run build
 $ npm start
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Building
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+Don't forget the `npm run build` step whenever javascript changes are made. 
+See build in the scripts section of `package.json`. 
+It uses Browserify to rebuild the `bundle.js` file. 
+
 
 ## Documentation
 
