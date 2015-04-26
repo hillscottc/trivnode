@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 
 // Connect to database
-mongoose.connect('mongodb://localhost/quest_db');
+mongoose.connect('mongodb://localhost/trivnode');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
@@ -22,7 +22,7 @@ var Clue = mongoose.model('Clue', clueSchema);
 
 // GET /api page.
 router.get( '/', function(request, response ) {
-    response.render('api', { site_name: 'QuestClient' });
+    response.render('api', { site_name: 'TrivNode' });
 });
 
 
