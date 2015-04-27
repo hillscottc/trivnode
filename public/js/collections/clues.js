@@ -3,7 +3,9 @@ var _ = require('underscore');
 var Clue = require('../models/clue');
 
 
-Clues = Backbone.Collection.extend({
+var app = app || {};
+
+app.Clues = Backbone.Collection.extend({
 
     model: Clue,
 
@@ -20,5 +22,3 @@ Clues = Backbone.Collection.extend({
 
 });
 
-
-module.exports = Clues;

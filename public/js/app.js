@@ -1,8 +1,8 @@
-var Backbone = require("backbone");
-var $ = require('jquery');
-Backbone.$ = $;
+// var Backbone = require("backbone");
+// var $ = require('jquery');
+// Backbone.$ = $;
 
-var CluesView = require('./views/clues');
+// var CluesView = require('./views/clues');
 
 var app = app || {};
 

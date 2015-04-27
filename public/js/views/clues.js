@@ -1,16 +1,18 @@
 var Backbone = require("backbone");
 var $ = require('jquery');
 var _ = require('underscore');
-var Clues = require('../collections/clues');
-var ClueView = require('./clue');
+// var Clues = require('../collections/clues');
+// var ClueView = require('./clue');
 
 
-CluesView = Backbone.View.extend({
+var app = app || {};
+
+app.CluesView = Backbone.View.extend({
 
     el: '#clues-view',
 
     initialize: function(initialClues) {
-        this.collection = new Clues(initialClues);
+        this.collection = new app.Clues(initialClues);
         this.collection.fetch({reset: true});
         this.vent = _.extend({}, Backbone.Events);   // Event aggregator
         this.rights_count = 0;
@@ -33,27 +35,27 @@ CluesView = Backbone.View.extend({
         if (answer_tracking == 'True') {
             var questionid = targ.model['attributes']['id'];
             console.log("u:" + $("#userid").val());
-            this.postUserLog(JSON.stringify({"userid": $("#userid").val(),
-                "questionid": questionid}));
+            // this.postUserLog(JSON.stringify({"userid": $("#userid").val(),
+            //     "questionid": questionid}));
             // This works, but is being deprecated for the newer counts table
             //this.rights_count++;
             //$("#answer-count").text(this.rights_count);
         }
     },
 
-    postUserLog: function(data){
-        var request = $.ajax({
-            url: '/api/v1/user_log/',
-            type: 'POST',
-            contentType: 'application/json',
-            data: data,
-            dataType: 'html',
-            processData: false});
+    // postUserLog: function(data){
+    //     var request = $.ajax({
+    //         url: '/api/v1/user_log/',
+    //         type: 'POST',
+    //         contentType: 'application/json',
+    //         data: data,
+    //         dataType: 'html',
+    //         processData: false});
 
-        request.done(function() {
-            console.log("Posted " + data + ", received " + request['statusText']);
-        });
-    },
+    //     request.done(function() {
+    //         console.log("Posted " + data + ", received " + request['statusText']);
+    //     });
+    // },
 
     search: function() {
         var letters = $("#searchText").val();
@@ -78,9 +80,8 @@ CluesView = Backbone.View.extend({
 
     // Render an individual item
     renderItem: function( item ) {
-        var clueView = new ClueView({model: item, vent: this.vent});
+        var clueView = new app.ClueView({model: item, vent: this.vent});
         $("#clues-list").append( clueView.render().el );
     }
 });
 
-module.exports = CluesView;

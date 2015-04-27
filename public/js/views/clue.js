@@ -3,8 +3,9 @@ var $ = require('jquery');
 var _ = require('underscore');
 
 
+var app = app || {};
 
-ClueView = Backbone.View.extend({
+app.ClueView = Backbone.View.extend({
     tagName: 'div',
     className: 'clueContainer',
 
@@ -89,4 +90,3 @@ ClueView = Backbone.View.extend({
     }
 });
 
-module.exports = ClueView;
