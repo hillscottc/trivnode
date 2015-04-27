@@ -1,13 +1,13 @@
-var Backbone = require("backbone");
-var _ = require('underscore');
-var Clue = require('../models/clue');
+// var Backbone = require("backbone");
+// var _ = require('underscore');
+// var Clue = require('../models/clue');
 
 
 var app = app || {};
 
 app.Clues = Backbone.Collection.extend({
 
-    model: Clue,
+    model: app.Clue,
 
     url: '/api/clues/',
 

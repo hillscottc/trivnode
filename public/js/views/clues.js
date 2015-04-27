@@ -1,6 +1,6 @@
-var Backbone = require("backbone");
-var $ = require('jquery');
-var _ = require('underscore');
+// var Backbone = require("backbone");
+// var $ = require('jquery');
+// var _ = require('underscore');
 // var Clues = require('../collections/clues');
 // var ClueView = require('./clue');
 
