@@ -25,6 +25,13 @@ See build in the scripts section of `package.json`.
 It uses Browserify to rebuild the `bundle.js` file. 
 
 
+## Database
+I fill the db using the load_mongo command of the quest django app.
+
+    $ mongo
+    > use trivnode
+    > db.clues.find()
+    
 ## Documentation
 
 For more information about using Node.js on Heroku, see these Dev Center articles:
