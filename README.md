@@ -1,6 +1,10 @@
 # About
 
-A Node.js app using [Express 4](http://expressjs.com/).
+Trivia questions from the Jeopardy show. 
+
+# Build
+
+This is a Node.js app using Express.js, Backbone.js and MongoDB.
 
 It uses [Browserify](http://browserify.org/) to rebuild the `bundle.js` file, 
 so don't forget the `npm run build` step whenever js changes are made. 
@@ -8,7 +12,6 @@ so don't forget the `npm run build` step whenever js changes are made.
 See build in the scripts section of [package.json](package.json). 
 
 
-# Build
 
     $ npm install
     $ npm run build
