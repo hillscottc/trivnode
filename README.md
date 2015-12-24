@@ -11,17 +11,23 @@ so don't forget the `npm run build` step whenever js changes are made.
 
 See build in the scripts section of [package.json](package.json). 
 
-
-
     $ npm install
     $ npm run build
     $ npm start
 
 
 ## Database
-I fill the db using the load_mongo command of the quest django app.
+The db was originally created with the `load_mongo` command of the quest django app.
+A backup was created using `mongodump`:
+
+    mongodump --db trivnode --out database    
+ 
+It can be restored with `mongorestore`.
+
+    mongorestore --db trivnode --drop database/trivnode
+    
+Check records:
 
     $ mongo
     > use trivnode
     > db.clues.find()
-    
