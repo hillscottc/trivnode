@@ -1,6 +1,6 @@
 # About
 
-Trivia questions from the Jeopardy show. 
+Trivia questions from a game show. 
 
 # Build
 
@@ -20,11 +20,11 @@ See build in the scripts section of [package.json](package.json).
 The db was originally created with the `load_mongo` command of the quest django app.
 A backup was created using `mongodump`:
 
-    mongodump --db trivnode --out dump    
+    $ mongodump --db trivnode --out dump    
  
 It can be restored with `mongorestore`.
 
-    mongorestore --db trivnode --drop dump/trivnode
+    $ mongorestore --db trivnode --drop dump/trivnode
     
 Check records:
 
