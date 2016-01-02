@@ -6,7 +6,8 @@ This is a single-page application in [Node](https://nodejs.org/).
 The layout is a responsive [Boostrap](http://getbootstrap.com/) template.
 
 The web application framework is [Express](http://expressjs.com/), handling request routing 
-and html template rendering ([handlebars](http://handlebarsjs.com/)). 
+and html template rendering ([handlebars](http://handlebarsjs.com/)). It exposes the app's data layer 
+through an [api](routes/api.js).
 
 The main web application is structured with Backbone.js. 
 It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
