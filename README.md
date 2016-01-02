@@ -11,13 +11,15 @@ Trivia questions from a game show.
 ## Components
 
 This is a single-page application in [Node](https://nodejs.org/). 
-The layout is a responsive [Boostrap](http://getbootstrap.com/) template.
+The layout is a responsive [Bootstrap](http://getbootstrap.com/) template.
 
-The web application framework is [Express](http://expressjs.com/), handling request routing 
-and html template rendering ([handlebars](http://handlebarsjs.com/)). 
+The web application framework is [Express.js](http://expressjs.com/), handling request routing 
+and html template rendering ([Handlebars.js](http://handlebarsjs.com/)). 
 
-The main web application is structured with Backbone.js. 
-It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
+The main web application is structured with [Backbone.js](http://backbonejs.org/). It is primarily used primarily 
+to implement the app's fast 'as-you-type' search filter of 1,000 rows of clues on the main page. 
+
+[Browserify](http://browserify.org/) is used to bundle the app's javascript modules, 
 so it is necessary to run `npm run build` whenever js changes are made. 
 
 
@@ -67,8 +69,6 @@ Pull the latest mongo image from dockerhub.
     $ docker pull mongo:latest
 
 Create a new container from the mongo image and name it "mongodb" exposing port 27017. 
-
-
 
 
 By default, mongo saves the data inside the container at /data/db
