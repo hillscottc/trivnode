@@ -4,16 +4,13 @@ Trivia questions from a game show.
 
 # Build
 
-This is a Node.js app using Express.js, Backbone.js and MongoDB.
+This is a single-page application in [Node](https://nodejs.org/). 
+The web application framework is [Express](http://expressjs.com/) for handling request routing 
+and html template rendering ([handlebars](http://handlebarsjs.com/)). 
 
-It uses [Browserify](http://browserify.org/) to rebuild the `bundle.js` file, 
-so don't forget the `npm run build` step whenever js changes are made. 
-
-See build in the scripts section of [package.json](package.json). 
-
-    $ npm install
-    $ npm run build
-    $ npm start
+The main web application is structured with Backbone.js. 
+It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
+so it is necessary to run `npm run build` whenever js changes are made. 
 
 
 ## Database
@@ -26,8 +23,34 @@ It can be restored with `mongorestore`.
 
     $ mongorestore --db trivnode --drop dump/trivnode
     
-Check records:
 
-    $ mongo
-    > use trivnode
-    > db.clues.find()
+## Docker
+
+Pull the latest mongo image from dockerhub.
+
+    $ docker pull mongo:latest
+
+Create a new container from the mongo image and name it "mongodb" exposing port 27017. 
+
+
+
+
+By default, mongo saves the data inside the container at /data/db
+Use the -v option to link local /var/mongodb to /data/db inside the container. 
+
+    $ sudo mkdir -p /var/mongodb
+    $ docker run -itd -p 27017 -v /var/mongodb:/data/db --name mongodb mongo
+
+
+Build the app's container
+
+    $ docker build -t hillscottc/trivnode .
+
+Bash into it, to check stuff:
+
+    $ docker run -it -P --link mongodb:mongodb hillscottc/trivnode bash
+
+Daemonized:
+
+    $ docker run -itd -P --link mongodb:mongodb hillscottc/trivnode bash
+
