@@ -3,7 +3,7 @@
 Trivia questions from a game show. 
 
 This is a single-page application in [Node](https://nodejs.org/). 
-The layout is a responsive [http://getbootstrap.com/](http://getbootstrap.com/) template.
+The layout is a responsive [Boostrap](http://getbootstrap.com/) template.
 
 The web application framework is [Express](http://expressjs.com/), handling request routing 
 and html template rendering ([handlebars](http://handlebarsjs.com/)). 
