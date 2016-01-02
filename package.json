@@ -12,11 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/hillscottc/trivnode.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hillscottc/trivnode/issues"
-  },
+  "author": "Scott C. Hill",
+  "license": "MIT",
   "homepage": "https://github.com/hillscottc/trivnode#readme",
   "dependencies": {
     "backbone": "^1.2.3",

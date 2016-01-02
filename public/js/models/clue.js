@@ -1,5 +1,3 @@
-// var Backbone = require("backbone");
-
 var app = app || {};
 
 app.Clue = Backbone.Model.extend({

@@ -1,8 +1,3 @@
-// var Backbone = require("backbone");
-// var _ = require('underscore');
-// var Clue = require('../models/clue');
-
-
 var app = app || {};
 
 app.Clues = Backbone.Collection.extend({

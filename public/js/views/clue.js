@@ -1,8 +1,3 @@
-// var Backbone = require("backbone");
-// var $ = require('jquery');
-// var _ = require('underscore');
-
-
 var app = app || {};
 
 app.ClueView = Backbone.View.extend({

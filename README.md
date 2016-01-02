@@ -2,15 +2,22 @@
 
 Trivia questions from a game show. 
 
-# Build
-
 This is a single-page application in [Node](https://nodejs.org/). 
-The web application framework is [Express](http://expressjs.com/) for handling request routing 
+The layout is a responsive [http://getbootstrap.com/](http://getbootstrap.com/) template.
+
+The web application framework is [Express](http://expressjs.com/), handling request routing 
 and html template rendering ([handlebars](http://handlebarsjs.com/)). 
 
 The main web application is structured with Backbone.js. 
 It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
 so it is necessary to run `npm run build` whenever js changes are made. 
+
+
+# Build
+
+    $ npm install
+    $ npm run build
+    $ npm start
 
 
 ## Database
