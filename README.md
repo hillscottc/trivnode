@@ -2,24 +2,52 @@
 
 Trivia questions from a game show. 
 
-This is a single-page application in [Node](https://nodejs.org/). 
-The layout is a responsive [Boostrap](http://getbootstrap.com/) template.
-
-The web application framework is [Express](http://expressjs.com/), handling request routing 
-and html template rendering ([handlebars](http://handlebarsjs.com/)). It exposes the app's data layer 
-through an [api](routes/api.js).
-
-The main web application is structured with Backbone.js. 
-It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
-so it is necessary to run `npm run build` whenever js changes are made. 
-
-
 # Build
 
     $ npm install
     $ npm run build
     $ npm start
 
+## Components
+
+This is a single-page application in [Node](https://nodejs.org/). 
+The layout is a responsive [Boostrap](http://getbootstrap.com/) template.
+
+The web application framework is [Express](http://expressjs.com/), handling request routing 
+and html template rendering ([handlebars](http://handlebarsjs.com/)). 
+
+The main web application is structured with Backbone.js. 
+It uses [Browserify](http://browserify.org/) bundle the app's javascript modules, 
+so it is necessary to run `npm run build` whenever js changes are made. 
+
+
+## API
+The api provides question data from the db, called 'clues'. Two basic GET functions are provided:
+
+From [routes/api.js](routes/api.js) :
+
+    // GET all clues /api/clues/
+    router.get('/clues/', function(request, response) {
+        return Clue.find(function(err, clues) {
+            if (!err) {
+                return response.send(clues);
+            } else {
+                return console.log(err);
+            }
+        });
+    });
+    
+    
+    // GET single clue by id /api/clues/{id}
+    router.get('/clues/:id', function(request, response) {
+         return Clue.findById(request.params.id, function(err, clue) {
+             if (!err) {
+                 return response.send(clue);
+             } else {
+                 return console.log(err);
+             }
+         });
+    });
 
 ## Database
 The db was originally created with the `load_mongo` command of the quest django app.

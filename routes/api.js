@@ -33,7 +33,7 @@ router.get( '/', function(request, response ) {
 });
 
 
-// GET /api/clues
+// GET all clues /api/clues/
 router.get('/clues/', function(request, response) {
     return Clue.find(function(err, clues) {
         if (!err) {
@@ -45,7 +45,7 @@ router.get('/clues/', function(request, response) {
 });
 
 
-// GET a single clue by id
+// GET single clue by id /api/clues/{id}
 router.get('/clues/:id', function(request, response) {
      return Clue.findById(request.params.id, function(err, clue) {
          if (!err) {
