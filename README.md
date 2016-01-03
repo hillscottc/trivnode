@@ -24,13 +24,30 @@ so it is necessary to run `npm run build` whenever js changes are made.
 
 
 ## API
-The api provides question data from the db, called 'clues'. Two basic GET functions are provided:
+The api provides question data from the db, called 'clues'. Three basic GET functions are provided:
 
 From [routes/api.js](routes/api.js) :
 
     // GET all clues /api/clues/
     router.get('/clues/', function(request, response) {
-        return Clue.find(function(err, clues) {
+        //return Clue.find(function(err, clues) {
+        return Clue.find().exec(function (err, clues) {
+            if (!err) {
+                return response.send(clues);
+            } else {
+                return console.log(err);
+            }
+        });
+    });
+    
+    
+    // GET random clues /api/clues/r/
+    router.get('/clues/r/:limit?', function(request, response) {
+        var limit = request.params.limit;
+        if (!limit) {
+            limit = 100;  // default max random records
+        }
+        return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
             if (!err) {
                 return response.send(clues);
             } else {
