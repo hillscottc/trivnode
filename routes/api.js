@@ -35,12 +35,10 @@ router.get( '/', function(request, response ) {
 });
 
 
-router.get('/clues/r/:limit?', function(request, response) {
-    var limit = request.params.limit;
-    if (!limit) {
-        limit = 100;  // default max random records
-    }
-    return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
+// GET all clues /api/clues/
+router.get('/clues/', function(request, response) {
+    //return Clue.find(function(err, clues) {
+    return Clue.find().exec(function (err, clues) {
         if (!err) {
             return response.send(clues);
         } else {
@@ -50,10 +48,13 @@ router.get('/clues/r/:limit?', function(request, response) {
 });
 
 
-// GET all clues /api/clues/
-router.get('/clues/', function(request, response) {
-    //return Clue.find(function(err, clues) {
-    return Clue.find().exec(function (err, clues) {
+// GET random clues /api/clues/r/
+router.get('/clues/r/:limit?', function(request, response) {
+    var limit = request.params.limit;
+    if (!limit) {
+        limit = 100;  // default max random records
+    }
+    return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
         if (!err) {
             return response.send(clues);
         } else {

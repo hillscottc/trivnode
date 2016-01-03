@@ -7,6 +7,8 @@ var request = require('supertest'),
 var app = require('../main');
 
 describe('GET /api/clues/', function(){
+    this.timeout(50000);
+
     it('gets clues', function(done){
         request(app)
             .get('/api/clues/')
