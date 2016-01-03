@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require( 'mongoose' );
+var random = require('mongoose-simple-random');
 
 // Connect to database
 mongoose.connect('mongodb://localhost/trivnode');
@@ -23,6 +24,8 @@ var clueSchema = new mongoose.Schema({
     category: String
 });
 
+clueSchema.plugin(random);
+
 
 var Clue = mongoose.model('Clue', clueSchema);
 
@@ -33,9 +36,24 @@ router.get( '/', function(request, response ) {
 });
 
 
+// GET random clues /api/clues/r/
+router.get('/clues/r/', function(request, response) {
+
+    return Clue.findRandom({}, {}, {limit: 5}, function(err, clues) {
+        if (!err) {
+            return response.send(clues);
+        } else {
+            return console.log(err);
+        }
+    });
+
+});
+
+
 // GET all clues /api/clues/
 router.get('/clues/', function(request, response) {
-    return Clue.find(function(err, clues) {
+    //return Clue.find(function(err, clues) {
+    return Clue.find().exec(function (err, clues) {
         if (!err) {
             return response.send(clues);
         } else {
