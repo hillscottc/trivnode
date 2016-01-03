@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node main.js",
     "build": "browserify public/js/app.js -o public/js/bundle.js",
-    "test": "mocha tests/"
+    "test": "mocha test --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,8 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
     "supertest": "^1.1.0"
   }
 }

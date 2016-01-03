@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 var random = require('mongoose-simple-random');
 
+
 // Connect to database
 mongoose.connect('mongodb://localhost/trivnode');
 
@@ -26,9 +27,7 @@ var clueSchema = new mongoose.Schema({
 
 clueSchema.plugin(random);
 
-
 var Clue = mongoose.model('Clue', clueSchema);
-
 
 // GET /api page.
 router.get( '/', function(request, response ) {
@@ -36,17 +35,18 @@ router.get( '/', function(request, response ) {
 });
 
 
-// GET random clues /api/clues/r/
-router.get('/clues/r/', function(request, response) {
-
-    return Clue.findRandom({}, {}, {limit: 5}, function(err, clues) {
+router.get('/clues/r/:limit?', function(request, response) {
+    var limit = request.params.limit;
+    if (!limit) {
+        limit = 100;  // default max random records
+    }
+    return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
         if (!err) {
             return response.send(clues);
         } else {
             return console.log(err);
         }
     });
-
 });
 
 

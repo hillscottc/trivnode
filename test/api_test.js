@@ -1,11 +1,13 @@
 var request = require('supertest'),
     express = require('express'),
-    assert = require('assert');
+    assert = require('assert'),
+    chai = require('chai'),
+    expect = chai.expect;
 
 var app = require('../main');
 
 describe('GET /api/clues/', function(){
-    it('respond with json', function(done){
+    it('gets clues', function(done){
         request(app)
             .get('/api/clues/')
             .expect('Content-Type', /json/)
@@ -18,8 +20,9 @@ describe('GET /api/clues/', function(){
     })
 });
 
+
 describe('GET /api/clues/r/', function(){
-    it('respond with json', function(done){
+    it('gets random clues', function(done){
         request(app)
             .get('/api/clues/r/')
             .expect('Content-Type', /json/)
@@ -27,7 +30,20 @@ describe('GET /api/clues/r/', function(){
             .end(function(err, res){
                 if (err) throw err;
                 console.log("Clues returned: " + res.body.length);
-                console.log(res.body);
+                done();
+            });
+    })
+});
+
+describe('GET /api/clues/r/10', function(){
+    it('gets 10 random clues', function(done){
+        request(app)
+            .get('/api/clues/r/10')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end(function(err, res){
+                if (err) throw err;
+                expect(res.body.length).to.equal(10);
                 done();
             });
     })
