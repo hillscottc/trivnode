@@ -1,15 +1,14 @@
-# About
+# TrivNode
 
 Trivia questions from a game show. 
 
-# Build
+## Build
 
     $ npm install
     $ npm run build
     $ npm start
 
 ## Components
-
 This is a single-page application in [Node](https://nodejs.org/). 
 The layout is a responsive [Bootstrap](http://getbootstrap.com/) template.
 
@@ -70,9 +69,8 @@ From [routes/api.js](routes/api.js) :
 
 ## Database
 The db was originally created with the `load_mongo` command of the quest django app.
-A backup was created using `mongodump`:
-
-    $ mongodump --db trivnode --out dump    
+A backup was created using `mongodump --db trivnode --out dump`, The output is stored 
+in the dump directory of this archive.
  
 It can be restored with `mongorestore`.
 
@@ -80,6 +78,7 @@ It can be restored with `mongorestore`.
     
 
 ## Docker
+Optionally, the app can be built using Docker containers. 
 
 Pull the latest mongo image from dockerhub.
 
