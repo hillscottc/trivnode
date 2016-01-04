@@ -1,6 +1,6 @@
 # TrivNode
 
-Trivia questions from a game show. 
+An interface for answering Jeopardy-style clues from a database of 180,000+ trivia questions. 
 
 ## Build
 
