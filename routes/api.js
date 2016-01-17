@@ -1,22 +1,31 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require( 'mongoose' );
-var random = require('mongoose-simple-random');
+var util = require('util'),
+    express = require('express'),
+    router = express.Router(),
+    mongoose = require( 'mongoose'),
+    random = require('mongoose-simple-random'),
+    config = require('config');
 
+// Connect to Mongo
+var connStr;
+var mongoConfig = config.get('mongo');
+if (config.util.getEnv('NODE_ENV') === 'development') {
+  connStr = util.format('mongodb://%s:%s/%s', mongoConfig.host, mongoConfig.port, mongoConfig.dbName);
+} else {
+  connStr = util.format('mongodb://%s:%s@%s:%s/%s',
+      mongoConfig.user, mongoConfig.password, mongoConfig.host, mongoConfig.port, mongoConfig.dbName);
+}
 
-// Connect to database
-mongoose.connect('mongodb://localhost/trivnode');
+mongoose.connect(connStr);
 
 //// Using a docker image mongo
 //var address = process.env.MONGODB_PORT_27017_TCP_ADDR;
 //var port = process.env.MONGODB_PORT_27017_TCP_PORT;
-//mongoose.connect("mongodb://" + address + ":" + port + "/trivnode");
 
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
-    console.log("Connected to Mongo.")
+  console.log("Connected to Mongo at " + mongoConfig.host);
 });
 
 var clueSchema = new mongoose.Schema({
