@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hillscottc/trivnode.svg?branch=master)](https://travis-ci.org/hillscottc/trivnode) [![Coverage Status](https://coveralls.io/repos/hillscottc/trivnode/badge.svg?branch=master&service=github)](https://coveralls.io/github/hillscottc/trivnode?branch=master)
 # TrivNode
 
 An interface for answering Jeopardy-style clues from a database of 180,000+ trivia questions. 

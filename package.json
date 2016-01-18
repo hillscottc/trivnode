@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node main.js",
     "build": "browserify public/js/app.js -o public/js/bundle.js",
-    "test": "mocha test --reporter spec"
+    "test": "node_modules/.bin/mocha test --reporter spec",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,8 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "supertest": "^1.1.0"
   }
