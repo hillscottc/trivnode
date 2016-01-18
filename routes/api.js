@@ -1,4 +1,4 @@
-var util = require('util'),
+var printf = require('printf'),
     express = require('express'),
     router = express.Router(),
     mongoose = require( 'mongoose'),
@@ -8,16 +8,9 @@ var util = require('util'),
 
 console.log("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
 
-
 // Connect to Mongo
-mongoose.connect(
-    util.format('mongodb://%s:%s@%s:%s/%s',
-        config.get('mongo.user'), config.get('mongo.password'),
-        config.get('mongo.host'), config.get('mongo.port'), config.get('mongo.dbName')));
-
-//// Using a docker image mongo
-//var address = process.env.MONGODB_PORT_27017_TCP_ADDR;
-//var port = process.env.MONGODB_PORT_27017_TCP_PORT;
+var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
+mongoose.connect(connStr);
 
 var db = mongoose.connection;
 console.log("Connecting to " + config.get('mongo.host') + "...");
