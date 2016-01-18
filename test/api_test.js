@@ -1,9 +1,12 @@
 var request = require('supertest'),
-    config = require('config'),
     express = require('express'),
     assert = require('assert'),
     chai = require('chai'),
     expect = chai.expect;
+
+// Run the tests against the stage env mongolab db
+process.env.NODE_ENV = "stage";
+var config = require('config');
 
 var app = require('../main');
 
