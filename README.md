@@ -6,7 +6,6 @@ An interface for answering Jeopardy-style clues from a database of 180,000+ triv
 ## Build
 
     $ npm install
-    $ npm run build
     $ npm start
 
 ## Components
@@ -18,9 +17,6 @@ and html template rendering ([Handlebars.js](http://handlebarsjs.com/)).
 
 The main web application is structured with [Backbone.js](http://backbonejs.org/). It is primarily used primarily 
 to implement the app's fast 'as-you-type' search filter of 1,000 rows of clues on the main page. 
-
-[Browserify](http://browserify.org/) is used to bundle the app's javascript modules, 
-so it is necessary to run `npm run build` whenever js changes are made. 
 
 
 ## API
