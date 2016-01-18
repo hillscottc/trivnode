@@ -6,6 +6,7 @@ var util = require('util'),
     config = require('config');
 
 // Connect to Mongo
+console.log("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
 var connStr;
 var mongoConfig = config.get('mongo');
 if (config.util.getEnv('NODE_ENV') === 'development') {
@@ -23,9 +24,10 @@ mongoose.connect(connStr);
 
 
 var db = mongoose.connection;
+console.log("Connecting to " + mongoConfig.host + "...");
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
-  console.log("Connected to Mongo at " + mongoConfig.host);
+  console.log("Connected to Mongo.");
 });
 
 var clueSchema = new mongoose.Schema({
