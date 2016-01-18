@@ -1,9 +1,5 @@
 {
   "mongo": {
-    "host": "ds047075.mongolab.com",
-    "port": 47075,
-    "dbName": "trivnode",
-    "user": "triv_user",
-    "password": "triv_12345"
+    "dbName": "trivnode"
   }
 }

@@ -5,26 +5,22 @@ var util = require('util'),
     random = require('mongoose-simple-random'),
     config = require('config');
 
-// Connect to Mongo
-console.log("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
-var connStr;
-var mongoConfig = config.get('mongo');
-if (config.util.getEnv('NODE_ENV') === 'development') {
-  connStr = util.format('mongodb://%s:%s/%s', mongoConfig.host, mongoConfig.port, mongoConfig.dbName);
-} else {
-  connStr = util.format('mongodb://%s:%s@%s:%s/%s',
-      mongoConfig.user, mongoConfig.password, mongoConfig.host, mongoConfig.port, mongoConfig.dbName);
-}
 
-mongoose.connect(connStr);
+console.log("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
+
+
+// Connect to Mongo
+mongoose.connect(
+    util.format('mongodb://%s:%s@%s:%s/%s',
+        config.get('mongo.user'), config.get('mongo.password'),
+        config.get('mongo.host'), config.get('mongo.port'), config.get('mongo.dbName')));
 
 //// Using a docker image mongo
 //var address = process.env.MONGODB_PORT_27017_TCP_ADDR;
 //var port = process.env.MONGODB_PORT_27017_TCP_PORT;
 
-
 var db = mongoose.connection;
-console.log("Connecting to " + mongoConfig.host + "...");
+console.log("Connecting to " + config.get('mongo.host') + "...");
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   console.log("Connected to Mongo.");
