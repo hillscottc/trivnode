@@ -29,9 +29,9 @@ db.once('open', function (callback) {
 });
 
 var clueSchema = new mongoose.Schema({
-    question: String,
-    answer: String,
-    category: String
+  question: String,
+  answer: String,
+  category: String
 });
 
 clueSchema.plugin(random);
@@ -40,48 +40,48 @@ var Clue = mongoose.model('Clue', clueSchema);
 
 // GET /api page.
 router.get( '/', function(request, response ) {
-    response.render('api', { site_name: 'TrivNode' });
+  response.render('api', { site_name: 'TrivNode' });
 });
 
 
-// GET all clues /api/clues/
+// GET /api/clues/ -- top 1000 clues
 router.get('/clues/', function(request, response) {
-    //return Clue.find(function(err, clues) {
-    return Clue.find().exec(function (err, clues) {
-        if (!err) {
-            return response.send(clues);
-        } else {
-            return console.log(err);
-        }
-    });
+  //return Clue.find(function(err, clues) {
+  return Clue.find().limit(1000).exec(function (err, clues) {
+    if (!err) {
+      return response.send(clues);
+    } else {
+      return console.log(err);
+    }
+  });
 });
 
 
-// GET random clues /api/clues/r/
+// GET  /api/clues/r/  -- random clues with optional limit
 router.get('/clues/r/:limit?', function(request, response) {
-    var limit = request.params.limit;
-    if (!limit) {
-        limit = 100;  // default max random records
+  var limit = request.params.limit;
+  if (!limit) {
+    limit = 100;  // default max random records
+  }
+  return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
+    if (!err) {
+      return response.send(clues);
+    } else {
+      return console.log(err);
     }
-    return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
-        if (!err) {
-            return response.send(clues);
-        } else {
-            return console.log(err);
-        }
-    });
+  });
 });
 
 
 // GET single clue by id /api/clues/{id}
 router.get('/clues/:id', function(request, response) {
-     return Clue.findById(request.params.id, function(err, clue) {
-         if (!err) {
-             return response.send(clue);
-         } else {
-             return console.log(err);
-         }
-     });
+  return Clue.findById(request.params.id, function(err, clue) {
+    if (!err) {
+      return response.send(clue);
+    } else {
+      return console.log(err);
+    }
+  });
 });
 
 module.exports = router;
