@@ -1,4 +1,5 @@
-var printf = require('printf'),
+var debug = require('debug')('trivnode:api'),
+    printf = require('printf'),
     express = require('express'),
     router = express.Router(),
     mongoose = require( 'mongoose'),
@@ -6,17 +7,17 @@ var printf = require('printf'),
     config = require('config');
 
 
-console.log("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
+debug("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
 
 // Connect to Mongo
 var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
 mongoose.connect(connStr);
 
 var db = mongoose.connection;
-console.log("Connecting to " + config.get('mongo.host') + "...");
+debug("Connecting to " + config.get('mongo.host') + "...");
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
-  console.log("Connected to Mongo.");
+  debug("Connected to Mongo.");
 });
 
 var clueSchema = new mongoose.Schema({
