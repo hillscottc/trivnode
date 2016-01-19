@@ -18,7 +18,7 @@ The web application framework is [Express.js](http://expressjs.com/), handling r
 and html template rendering ([Handlebars.js](http://handlebarsjs.com/)). 
 
 The main web application is structured with [Backbone.js](http://backbonejs.org/). It is primarily used primarily 
-to implement the app's fast 'as-you-type' search filter of 1,000 rows of clues on the main page. 
+to implement the app's fast 'as-you-type' search filter on the main page. 
 
 
 ## API
@@ -67,11 +67,13 @@ From [routes/api.js](routes/api.js) :
     });
 
 ## Database
+The data is stored in a mongo db hosted by MongoLab. A local database is not required to run the app.
+
+#### Optional - building a local db
+
 The db was originally created with the `load_mongo` command of the quest django app.
 A backup was created using `mongodump --db trivnode --out dump`, The output is stored 
-in the dump directory of this archive.
- 
-It can be restored with `mongorestore`.
+in the dump directory of this archive. It can be restored with `mongorestore`.
 
     $ mongorestore --db trivnode --drop dump/trivnode
     
