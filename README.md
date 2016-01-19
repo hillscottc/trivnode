@@ -3,6 +3,8 @@
 
 An interface for answering Jeopardy-style clues from a database of 180,000+ trivia questions. 
 
+Deployed at: [https://protected-lake-8296.herokuapp.com/](https://protected-lake-8296.herokuapp.com/) 
+
 ## Build
 
     $ npm install
