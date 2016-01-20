@@ -11,8 +11,8 @@ var debug = require('debug')('trivnode:api'),
 debug("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
 
 // Connect to Mongo
-var connStr = 'mongodb://localhost/trivnode';
-//var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
+//var connStr = 'mongodb://localhost/trivnode';
+var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
 mongoose.connect(connStr);
 
 var db = mongoose.connection;
