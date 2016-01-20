@@ -10,7 +10,7 @@ var request = require('supertest'),
 
 var app = require('../main');
 
-describe('GET /api/clues/', function(){
+describe('clues', function(){
   this.timeout(50000);
   it('gets clues', function(done){
     request(app)
@@ -25,7 +25,7 @@ describe('GET /api/clues/', function(){
   })
 });
 
-describe('GET /api/clues/r/', function(){
+describe('random clues', function(){
   this.timeout(50000);
   it('gets random clues', function(done){
         request(app)
@@ -34,23 +34,40 @@ describe('GET /api/clues/r/', function(){
             .expect(200)
             .end(function(err, res){
                 if (err) throw err;
-                console.log("Clues returned: " + res.body.length);
+                //console.log("Clues returned: " + res.body.length);
                 done();
             });
-    })
+    });
+
+  it('gets 10 random clues', function(done){
+    request(app)
+        .get('/api/clues/r/10')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function(err, res){
+          if (err) throw err;
+          expect(res.body.length).to.equal(10);
+          done();
+        });
+  })
+
 });
 
-describe('GET /api/clues/r/10', function(){
+
+describe('categories', function(){
   this.timeout(50000);
-  it('gets 10 random clues', function(done){
-        request(app)
-            .get('/api/clues/r/10')
-            .expect('Content-Type', /json/)
-            .expect(200)
-            .end(function(err, res){
-                if (err) throw err;
-                expect(res.body.length).to.equal(10);
-                done();
-            });
-    })
+  it('gets 10 random categories', function(done){
+    request(app)
+        .get('/api/cats/r/')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function(err, res){
+          if (err) throw err;
+          expect(res.body.length).to.equal(10);
+          //console.log("Categories returned: " + res.body.length);
+          //console.log(res.body);
+
+          done();
+        });
+  })
 });

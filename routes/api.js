@@ -4,13 +4,15 @@ var debug = require('debug')('trivnode:api'),
     router = express.Router(),
     mongoose = require( 'mongoose'),
     random = require('mongoose-simple-random'),
-    config = require('config');
+    config = require('config'),
+    shuffle = require('../common').shuffle;
 
 
 debug("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
 
 // Connect to Mongo
-var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
+var connStr = 'mongodb://localhost/trivnode';
+//var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
 mongoose.connect(connStr);
 
 var db = mongoose.connection;
@@ -30,10 +32,36 @@ clueSchema.plugin(random);
 
 var Clue = mongoose.model('Clue', clueSchema);
 
+
+
+/**
+ * Get random clue categories.
+ * @param limit
+ * @param callback
+ */
+function getRandomCats(limit, callback) {
+  return Clue.findRandom({}, {}, {limit: 1000}, function(err, clues) {
+    // cats are a hash keyed by category, for uniqueness
+    var catHash = {};
+    for (var i= 0;i<clues.length; i++) {
+      catHash[clues[i].category] = 1;
+    }
+    var cats = Object.keys(catHash);
+    cats = shuffle(cats);
+    callback(err, cats.slice(0, limit));
+  });
+}
+
+
+
+
 // GET /api page.
 router.get( '/', function(request, response ) {
   response.render('api', { site_name: 'TrivNode' });
 });
+
+
+
 
 
 // GET /api/clues/ -- top 1000 clues
@@ -53,7 +81,7 @@ router.get('/clues/', function(request, response) {
 router.get('/clues/r/:limit?', function(request, response) {
   var limit = request.params.limit;
   if (!limit) {
-    limit = 100;  // default max random records
+    limit = 100;  // default
   }
   return Clue.findRandom({}, {}, {limit: limit}, function(err, clues) {
     if (!err) {
@@ -62,6 +90,26 @@ router.get('/clues/r/:limit?', function(request, response) {
       return console.log(err);
     }
   });
+});
+
+
+
+// GET  /api/cats/r/  -- random categories with optional limit
+router.get('/cats/r/:limit?', function(request, response) {
+  var limit = request.params.limit;
+  if (!limit) {
+    limit = 10;  // default
+  }
+
+  return getRandomCats(limit, function(err, cats) {
+
+    if (!err) {
+      return response.send(cats);
+    } else {
+      return console.log(err);
+    }
+  });
+
 });
 
 
