@@ -1,66 +1,13 @@
-var debug = require('debug')('trivnode:api'),
-    printf = require('printf'),
-    express = require('express'),
+var express = require('express'),
     router = express.Router(),
-    mongoose = require( 'mongoose'),
-    random = require('mongoose-simple-random'),
-    config = require('config'),
-    shuffle = require('../common').shuffle;
-
-
-debug("NODE_ENV=" + config.util.getEnv('NODE_ENV'));
-
-// Connect to Mongo
-//var connStr = 'mongodb://localhost/trivnode';
-var connStr = printf('mongodb://%(user)s:%(password)s@%(host)s:%(port)s/%(dbName)s', config.get('mongo'));
-mongoose.connect(connStr);
-
-var db = mongoose.connection;
-debug("Connecting to " + config.get('mongo.host') + "...");
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  debug("Connected to Mongo.");
-});
-
-var clueSchema = new mongoose.Schema({
-  question: String,
-  answer: String,
-  category: String
-});
-
-clueSchema.plugin(random);
-
-var Clue = mongoose.model('Clue', clueSchema);
-
-
-
-/**
- * Get random clue categories.
- * @param limit
- * @param callback
- */
-function getRandomCats(limit, callback) {
-  return Clue.findRandom({}, {}, {limit: 1000}, function(err, clues) {
-    // cats are a hash keyed by category, for uniqueness
-    var catHash = {};
-    for (var i= 0;i<clues.length; i++) {
-      catHash[clues[i].category] = 1;
-    }
-    var cats = Object.keys(catHash);
-    cats = shuffle(cats);
-    callback(err, cats.slice(0, limit));
-  });
-}
-
-
+    Clue = require('../lib/schema').Clue,
+    getRandomCats = require('../lib/schema').getRandomCats;
 
 
 // GET /api page.
 router.get( '/', function(request, response ) {
   response.render('api', { site_name: 'TrivNode' });
 });
-
-
 
 
 
