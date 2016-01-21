@@ -1,7 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    Clue = require('../lib/schema').Clue,
-    getRandomCats = require('../lib/schema').getRandomCats;
+    Clue = require('../lib/schema').Clue;
 
 
 // GET /api page.
@@ -48,7 +47,7 @@ router.get('/cats/r/:limit?', function(request, response) {
     limit = 10;  // default
   }
 
-  return getRandomCats(limit, function(err, cats) {
+  return Clue.getRandomCats(limit, function(err, cats) {
 
     if (!err) {
       return response.send(cats);
