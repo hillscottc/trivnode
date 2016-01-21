@@ -64,8 +64,7 @@ describe('categories', function(){
         .end(function(err, res){
           if (err) throw err;
           expect(res.body.length).to.equal(10);
-          //console.log("Categories returned: " + res.body.length);
-          console.log(res.body);
+          //console.log(res.body);
           done();
         });
   })
