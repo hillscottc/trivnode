@@ -10,6 +10,26 @@ var request = require('supertest'),
 
 var app = require('../main');
 
+
+
+describe('klues', function(){
+  this.timeout(50000);
+  it('get 5 klues', function(done){
+    request(app)
+        .get('/api/klues')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function(err, res){
+          if (err) throw err;
+          expect(res.body.length).to.equal(5);
+          //console.log(res.body);
+          done();
+        });
+  })
+});
+
+
+
 describe('clues', function(){
   this.timeout(50000);
   it('gets clues', function(done){

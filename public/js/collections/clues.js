@@ -4,7 +4,8 @@ app.Clues = Backbone.Collection.extend({
 
     model: app.Clue,
 
-    url: '/api/clues/r/',
+    //url: '/api/clues/r/',
+    url: '/api/klues/',
 
     search: function(letters) {
         if(letters == "") return this;

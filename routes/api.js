@@ -1,12 +1,49 @@
 var express = require('express'),
     router = express.Router(),
-    Clue = require('../lib/schema').Clue;
+    getKlues = require('../database/pg_schema').getKlues,
+    Clue = require('../database/schema').Clue,
+    Klue = require('../database/pg_schema').Klue;
 
 
 // GET /api page.
 router.get( '/', function(request, response ) {
   response.render('api', { site_name: 'TrivNode' });
 });
+
+
+
+
+
+
+
+// GET /api/klues -- first 5 klues
+router.get('/klues', function(req, res) {
+
+  Klue.query(function(qb) {
+        qb.offset(0).limit(5);
+      })
+      .fetchAll()
+      .then(function(klues) {
+        res.json(klues);
+        //res.render(klues);
+      });
+});
+
+
+
+
+
+//// GET /api/klues/ -- top 1000 klues
+//router.get('/klues/', function(req, res) {
+//  getKlues(function(err, results) {
+//    if(err) {
+//      console.log(err);
+//      return res.status(500).json({ success: false, data: err});
+//    } else {
+//      res.json(results);
+//    }
+//  });
+//});
 
 
 
