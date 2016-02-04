@@ -7,7 +7,8 @@ app.Clue = Backbone.Model.extend({
     answer: 'Some answer.',
     category: 'Some category.'
   }
-  , initialize: function() {}
+  , initialize: function () {
+  }
 
   //, urlRoot : function(){
   //  return '/api/v1/clue/';

@@ -6,7 +6,8 @@ app.Cat = Backbone.Model.extend({
     category_id: "1",
     category_name: "Some category."
   }
-  , initialize: function() {}
+  , initialize: function () {
+  }
 
 });
 
