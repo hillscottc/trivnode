@@ -33,6 +33,31 @@ router.get('/clues', function(req, res) {
 });
 
 
+// GET /api/clues/cat/{id} -- clues by cat id
+router.get('/clues/cat/:id', function(req, res) {
+  var results = [];
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json({ success: false, data: err});
+    }
+    var query = client.query(
+        "SELECT a.category_name AS category, b.question, b.answer FROM clue AS b " +
+        "JOIN category AS a ON a.category_id = b.category_id " +
+        "WHERE b.category_id = $1;", [req.params.id]);
+    query.on('row', function(row) {
+      results.push(row);
+    });
+    query.on('end', function() {
+      done();
+      return res.json(results);
+    });
+  });
+});
+
+
+
 // GET /api/cats -- 20 RANDOM categories
 router.get('/cats', function(req, res) {
   var results = [];
@@ -51,17 +76,12 @@ router.get('/cats', function(req, res) {
       return res.json(results);
     });
   });
-});
+})
 
 
-/*
-'Clue' using the mongo data. Deprecating.
- */
 
 
-//
-//
-//
+
 //// GET  /api/cats/r/  -- random categories with optional limit
 //router.get('/cats/r/:limit?', function(request, response) {
 //  var limit = request.params.limit;
@@ -79,17 +99,6 @@ router.get('/cats', function(req, res) {
 //  });
 //
 //});
-//
-//
-//// GET single clue by id /api/clues/{id}
-//router.get('/clues/:id', function(request, response) {
-//  return Clue.findById(request.params.id, function(err, clue) {
-//    if (!err) {
-//      return response.send(clue);
-//    } else {
-//      return console.log(err);
-//    }
-//  });
-//});
+
 
 module.exports = router;
