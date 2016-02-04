@@ -28,6 +28,7 @@
     "handlebars": "^4.0.5",
     "jquery": "^2.1.4",
     "jquery-ui": "^1.10.5",
+    "morgan": "^1.6.1",
     "pg": "^4.4.4",
     "printf": "^0.2.3",
     "underscore": "^1.8.3"
