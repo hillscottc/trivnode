@@ -12,80 +12,96 @@ var app = require('../main');
 
 
 
-describe('klues', function(){
-  this.timeout(50000);
-  it('get 5 klues', function(done){
+describe('clues', function(){
+  it('get 100 random clues', function(done){
     request(app)
-        .get('/api/klues')
+        .get('/api/clues')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res){
           if (err) throw err;
-          expect(res.body.length).to.equal(5);
+          expect(res.body.length).to.equal(100);
           //console.log(res.body);
           done();
         });
   })
 });
-
-
-
-describe('clues', function(){
-  this.timeout(50000);
-  it('gets clues', function(done){
-    request(app)
-        .get('/api/clues/')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end(function(err, res){
-          if (err) throw err;
-          expect(res.body.length).to.equal(1000);
-          done();
-        });
-  })
-});
-
-describe('random clues', function(){
-  this.timeout(50000);
-  it('gets random clues', function(done){
-        request(app)
-            .get('/api/clues/r/')
-            .expect('Content-Type', /json/)
-            .expect(200)
-            .end(function(err, res){
-                if (err) throw err;
-                //console.log("Clues returned: " + res.body.length);
-                done();
-            });
-    });
-
-  it('gets 10 random clues', function(done){
-    request(app)
-        .get('/api/clues/r/10')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end(function(err, res){
-          if (err) throw err;
-          expect(res.body.length).to.equal(10);
-          done();
-        });
-  })
-
-});
-
 
 describe('categories', function(){
   this.timeout(50000);
-  it('gets 10 random categories', function(done){
+  it('get 100 random categories', function(done){
     request(app)
-        .get('/api/cats/r/')
+        .get('/api/cats')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res){
           if (err) throw err;
-          expect(res.body.length).to.equal(10);
+          expect(res.body.length).to.equal(100);
           //console.log(res.body);
           done();
         });
   })
 });
+
+
+//
+//
+//describe('clues', function(){
+//  this.timeout(50000);
+//  it('gets clues', function(done){
+//    request(app)
+//        .get('/api/clues/')
+//        .expect('Content-Type', /json/)
+//        .expect(200)
+//        .end(function(err, res){
+//          if (err) throw err;
+//          expect(res.body.length).to.equal(1000);
+//          done();
+//        });
+//  })
+//});
+//
+//describe('random clues', function(){
+//  this.timeout(50000);
+//  it('gets random clues', function(done){
+//        request(app)
+//            .get('/api/clues/r/')
+//            .expect('Content-Type', /json/)
+//            .expect(200)
+//            .end(function(err, res){
+//                if (err) throw err;
+//                //console.log("Clues returned: " + res.body.length);
+//                done();
+//            });
+//    });
+//
+//  it('gets 10 random clues', function(done){
+//    request(app)
+//        .get('/api/clues/r/10')
+//        .expect('Content-Type', /json/)
+//        .expect(200)
+//        .end(function(err, res){
+//          if (err) throw err;
+//          expect(res.body.length).to.equal(10);
+//          done();
+//        });
+//  })
+//
+//});
+//
+//
+//describe('categories', function(){
+//  this.timeout(50000);
+//  it('gets 10 random categories', function(done){
+//    request(app)
+//        .get('/api/cats/r/')
+//        .expect('Content-Type', /json/)
+//        .expect(200)
+//        .end(function(err, res){
+//          if (err) throw err;
+//          expect(res.body.length).to.equal(10);
+//          //console.log(res.body);
+//          done();
+//        });
+//  })
+//});
