@@ -62,3 +62,17 @@ body {
     display: none;
 }
 
+/*.cats-list {*/
+    /*display: inline-block;*/
+/*}*/
+
+.catContainer {
+    display: inline-block;
+}
+
+.cats-list a {
+    padding: 15px;
+    margin: 5px;
+    text-align: center ;
+}
+

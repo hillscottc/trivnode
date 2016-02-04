@@ -5,13 +5,14 @@
         <input type="text" id="searchText" />
     </div>
     </br>
-    <div id="cats-list" class="list-group"></div>
+
+    <!-- Template container -->
+    <div id="cats-list" class="btn-group cats-list" role="group" aria-label="Categories"></div>
+
 </div>
 
 <script id="catTemplate" type="text/template">
-    <div class="list-group-item">
-        <%= category_name %><
-    </div>
+    <a class="btn btn-default" href="" role="button"><%= category_name %></a>
 </script>
 
 <script src="/js/models/cat.js"></script>
@@ -20,6 +21,7 @@
 <script src="/js/views/cats_view.js"></script>
 <script src="/js/views/cats_view.js"></script>
 <script>
+
     $(function() {
         new app.CatsView();
     });

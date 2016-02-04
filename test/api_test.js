@@ -29,14 +29,14 @@ describe('clues', function(){
 
 describe('categories', function(){
   this.timeout(50000);
-  it('get 100 random categories', function(done){
+  it('get 20 random categories', function(done){
     request(app)
         .get('/api/cats')
         .expect('Content-Type', /json/)
         .expect(200)
         .end(function(err, res){
           if (err) throw err;
-          expect(res.body.length).to.equal(100);
+          expect(res.body.length).to.equal(20);
           //console.log(res.body);
           done();
         });

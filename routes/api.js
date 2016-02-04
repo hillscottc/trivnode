@@ -33,7 +33,7 @@ router.get('/clues', function(req, res) {
 });
 
 
-// GET /api/cats -- 100 RANDOM categories
+// GET /api/cats -- 20 RANDOM categories
 router.get('/cats', function(req, res) {
   var results = [];
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -42,7 +42,7 @@ router.get('/cats', function(req, res) {
       console.log(err);
       return res.status(500).json({ success: false, data: err});
     }
-    var query = client.query("SELECT * FROM category ORDER BY random() LIMIT 100;");
+    var query = client.query("SELECT * FROM category ORDER BY random() LIMIT 20;");
     query.on('row', function(row) {
       results.push(row);
     });
