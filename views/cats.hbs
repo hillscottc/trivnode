@@ -1,26 +1,28 @@
 
+<div id="cats-view">
+    <div style="text-align:right">
+        category filter
+        <input type="text" id="searchText" />
+    </div>
+    </br>
+    <div id="cats-list" class="list-group"></div>
+</div>
 
-cats
+<script id="catTemplate" type="text/template">
+    <div class="list-group-item">
+        <%= category_name %><
+    </div>
+</script>
 
-<!--<div id="cats-view">-->
-    <!--<div style="text-align:right">-->
-        <!--category filter-->
-        <!--<input type="text" id="searchText" />-->
-    <!--</div>-->
-    <!--</br>-->
-    <!--<div id="cats-list" class="list-group"></div>-->
-<!--</div>-->
-
-<!--<script id="catTemplate" type="text/template">-->
-    <!--<div class="list-group-item">-->
-        <!--<%= category_name %><-->
-    <!--</div>-->
-<!--</script>-->
-
-<!--<script src="/js/models/clue.js"></script>-->
-<!--<script src="/js/collections/clues.js"></script>-->
-<!--<script src="/js/views/clue.js"></script>-->
-<!--<script src="/js/views/clues.js"></script>-->
-<!--<script src="/js/app.js"></script>-->
+<script src="/js/models/cat.js"></script>
+<script src="/js/collections/cats.js"></script>
+<script src="/js/views/cat_view.js"></script>
+<script src="/js/views/cats_view.js"></script>
+<script src="/js/views/cats_view.js"></script>
+<script>
+    $(function() {
+        new app.CatsView();
+    });
+</script>
 
 
