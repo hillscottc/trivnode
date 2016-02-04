@@ -1,10 +1,12 @@
-var debug = require('debug')('trivnode:main');
+var debug = require('debug')('trivnode:main'),
     express = require('express'),
     path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    exphbs  = require('express-handlebars');
+    exphbs  = require('express-handlebars'),
+    routes = require('./routes'),
+    api = require('./routes/api');
 
 var app = express();
 
@@ -18,16 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.get('/', function(req, res, next) {
-  res.render('index', { site_name: 'TrivNode' });
-});
-
-app.get('/about', function(req, res, next) {
-  res.render('about', { site_name: 'TrivNode' });
-});
-
-var api = require('./routes/api');
+// Enable routes
+app.use('/', routes);
 app.use('/api', api);
 
 
