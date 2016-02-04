@@ -1,6 +1,5 @@
 var express = require('express'),
     router = express.Router(),
-    getKlues = require('../database/pg_schema').getKlues,
     Clue = require('../database/schema').Clue,
     Klue = require('../database/pg_schema').Klue;
 
@@ -12,6 +11,10 @@ router.get( '/', function(request, response ) {
 
 
 
+
+/*
+ 'Klue' uses the new PG database.
+ */
 
 
 
@@ -31,20 +34,9 @@ router.get('/klues', function(req, res) {
 
 
 
-
-
-//// GET /api/klues/ -- top 1000 klues
-//router.get('/klues/', function(req, res) {
-//  getKlues(function(err, results) {
-//    if(err) {
-//      console.log(err);
-//      return res.status(500).json({ success: false, data: err});
-//    } else {
-//      res.json(results);
-//    }
-//  });
-//});
-
+/*
+'Clue' uses the mongo data. Deprecating.
+ */
 
 
 // GET /api/clues/ -- top 1000 clues

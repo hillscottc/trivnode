@@ -1,29 +1,5 @@
 [
-  {
-    "category": "\"!\"",
-    "answer": "\"Eureka!\"",
-    "question": "I have found it!  The 1-word quotation found under Archimedes in \"Bartlett's\""
-  },
-  {
-    "category": "\"!\"",
-    "answer": "\"Swing!\"",
-    "question": "\"It don't mean a thing if it ain't got\" this dance revue on Broadway in April 2000"
-  },
-  {
-    "category": "\"!\"",
-    "answer": "E!",
-    "question": "Network for which the two reporters, seen here, work for<br />[Jules Asner & Steve Kmetko]"
-  },
-  {
-    "category": "\"!\"",
-    "answer": "Wham! (George Michael)",
-    "question": "Pop duo featuring Andrew Ridgeley & the man born Georgios Kyriacos Panayiotou"
-  },
-  {
-    "category": "\"!\"",
-    "answer": "Extra!",
-    "question": "Screamer banner denoting a special or additional edition of a newspaper"
-  },
+
   {
     "category": "@$&!",
     "answer": "neon",
@@ -35,56 +11,6 @@
     "question": "The $ may have originated as PS, an abbreviation for this other monetary unit"
   },
   {
-    "category": "01/01/01",
-    "answer": "Guns N' Roses",
-    "question": "At the Las Vegas House of Blues Axl got in gear & debuted a new version of this rock group"
-  },
-  {
-    "category": "01/01/01",
-    "answer": "Time capsule",
-    "question": "On January 1, 2001 Detroit mayor Dennis Archer opened one of these that had been sealed January 1, 1901"
-  },
-  {
-    "category": "01/01/01",
-    "answer": "People's Republic of China",
-    "question": "The first legal direct boat trips between Taiwan & this country in over 50 years began service"
-  },
-  {
-    "category": "01/01/01",
-    "answer": "Tyson Foods",
-    "question": "This Arkansas-based chicken firm announced it was going to buy the No. 1 U.S. beef processor, IBP Inc."
-  },
-  {
-    "category": "01/01/01",
-    "answer": "Tom Brokaw",
-    "question": "This NBC anchor was Grand Marshall of the Rose Bowl Parade"
-  },
-  {
-    "category": "10",
-    "answer": "Elizabeth Hurley",
-    "question": "As Hugh Grant's date, she made news at the \"Four Weddings and a Funeral\" premiere in a safety-pinned Versace"
-  },
-  {
-    "category": "10",
-    "answer": "Playboy",
-    "question": "\"Perfect Storm\" star Diane Lane's mother posed for the October 1957 issue of this magazine"
-  },
-  {
-    "category": "10",
-    "answer": "Sharon Stone",
-    "question": "She showed some \"Basic Instinct\" & became a mom in 2000"
-  },
-  {
-    "category": "10",
-    "answer": "Anna Kournikova",
-    "question": "This teenage tennis goddess is often escorted by older Russian hockey players"
-  },
-  {
-    "category": "10",
-    "answer": "Halle Berry",
-    "question": "This \"X-Men\" star previously charmed Warren Beatty in \"Bulworth\""
-  },
-  {
     "category": "100",
     "answer": "cents",
     "question": "In Europe, 1 euro is made up of 100 of these; feels like home"
@@ -94,21 +20,7 @@
     "answer": "116",
     "question": "Of 93 years, 116 years or 131 years, the actual length of the Hundred Years War"
   },
-  {
-    "category": "100",
-    "answer": "Wilt Chamberlain",
-    "question": "On March 2, 1962 this NBA superstar scored 100 points in one game"
-  },
-  {
-    "category": "100",
-    "answer": "Bob Hope",
-    "question": "The 2003 TV special \"100 Years of Hope and Humor\" celebrated this entertainer's first 100 years"
-  },
-  {
-    "category": "100",
-    "answer": "Hawaii",
-    "question": "This state gave us senators 99 & 100"
-  },
+
   {
     "category": "100,000 REASONS",
     "answer": "radio stations",
@@ -118,50 +30,5 @@
     "category": "100,000 REASONS",
     "answer": "prime numbers",
     "question": "Project Gutenberg's list of the 1st 100,000 of these runs from 1 to 1,318,699 (though some say 1 may not be one)"
-  },
-  {
-    "category": "100,000 REASONS",
-    "answer": "Sanskrit",
-    "question": "There are about 100,000 verses in the Mahabharata, a national epic poem of India written in this ancient language"
-  },
-  {
-    "category": "100,000 REASONS",
-    "answer": "maps",
-    "question": "The U.S. Geological Survey has a database of these in a 1:100,000 scale"
-  },
-  {
-    "category": "100,000 REASONS",
-    "answer": "a tsunami",
-    "question": "Tragically, on Dec. 26, 2004 one of these Japanese-named events claimed more than 100,000 lives"
-  },
-  {
-    "category": "100 _____ MAKE A....",
-    "answer": "Pfennigs",
-    "question": "100 of these make a mark in Germany"
-  },
-  {
-    "category": "100 _____ MAKE A....",
-    "answer": "Centimes",
-    "question": "100 of these make up a French franc"
-  },
-  {
-    "category": "100 _____ MAKE A....",
-    "answer": "Rupee",
-    "question": "100 paisas make up one of these in India"
-  },
-  {
-    "category": "100 _____ MAKE A....",
-    "answer": "Yen",
-    "question": "Scrape together 100 sen & you can trade them in for one of these in Japan"
-  },
-  {
-    "category": "100 _____ MAKE A....",
-    "answer": "Pence",
-    "question": "The United Kingdom's pound sterling breaks down into 100 of these"
-  },
-  {
-    "category": "100 YEARS AGO",
-    "answer": "International Red Cross",
-    "question": "In 1901 Switzerland's Jean-Henri Dunant, who founded this organization, shared the Nobel Peace Prize"
   }
 ]

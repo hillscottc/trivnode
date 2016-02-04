@@ -1,3 +1,11 @@
+
+/*
+
+The MONGO db stuff. deprecating.
+
+ */
+
+
 var debug = require('debug')('trivnode:schema'),
     printf = require('printf'),
     mongoose = require( 'mongoose'),
