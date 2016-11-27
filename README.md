@@ -1,6 +1,9 @@
 [![Build Status](https://travis-ci.org/hillscottc/trivnode.svg?branch=master)](https://travis-ci.org/hillscottc/trivnode) [![Coverage Status](https://coveralls.io/repos/hillscottc/trivnode/badge.svg?branch=master&service=github)](https://coveralls.io/github/hillscottc/trivnode?branch=master)
 # TrivNode
 
+***I've truncated this db to save a few bucks. My more recent [https://github.com/hillscottc/trivnode-react] has all the clues.***
+
+
 An interface for answering Jeopardy-style clues from a PostgreSQL database of 180,000+ trivia questions. 
 
 Deployed at: [https://protected-lake-8296.herokuapp.com/](https://protected-lake-8296.herokuapp.com/) 
